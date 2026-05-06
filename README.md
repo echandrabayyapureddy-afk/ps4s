@@ -5,7 +5,7 @@ Team Information
 * All-Female Team: No
 
 Architecture Overview
-Our system uses a joint platform-time optimization approach with a multiplicative scoring model. For each content item, we evaluate all 48 combinations (2 platforms x 24 time slots) and select the maximum-scoring option.
+Our system uses a joint platform-time optimization approach with a multiplicative scoring model. For each content itemhttps://github.com/echandrabayyapureddy-afk/ps4s/blob/main/README.md, we evaluate all 48 combinations (2 platforms x 24 time slots) and select the maximum-scoring option.
 
 Scoring formula: `score = platform_activity(platform, slot) x historical_engagement(creator, platform, content_type, slot) x base_engagement(creator)`
 
