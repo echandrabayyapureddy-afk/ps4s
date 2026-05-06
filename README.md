@@ -3,6 +3,7 @@ Team Information
 * Team Name: mix
 * Year: 2026
 * All-Female Team: No
+* link:https://ps4-main.vercel.app
 
 Architecture Overview
 Our system uses a joint platform-time optimization approach with a multiplicative scoring model. For each content itemhttps://github.com/echandrabayyapureddy-afk/ps4s/blob/main/README.md, we evaluate all 48 combinations (2 platforms x 24 time slots) and select the maximum-scoring option.
