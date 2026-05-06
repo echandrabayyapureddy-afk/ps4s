@@ -1,26 +1,18 @@
-# Creator Content Posting Optimization System
+Team Information
 
-## Team Information
-- **Team Name**: [Team Name]
-- **Year**: [Year]
-- **All-Female Team**: [Yes/No]
+* Team Name: mix
+* Year: 2026
+* All-Female Team: No
 
-## Architecture Overview
+Architecture Overview
+Our system uses a joint platform-time optimization approach with a multiplicative scoring model. For each content item, we evaluate all 48 combinations (2 platforms x 24 time slots) and select the maximum-scoring option.
 
-Our system uses a **joint platform-time optimization** approach with a multiplicative scoring model. For each content item, we evaluate all 48 combinations (2 platforms x 24 time slots) and select the maximum-scoring option.
+Scoring formula: `score = platform_activity(platform, slot) x historical_engagement(creator, platform, content_type, slot) x base_engagement(creator)`
 
-**Scoring formula:** `score = platform_activity(platform, slot) x historical_engagement(creator, platform, content_type, slot) x base_engagement(creator)`
+Optimal posting time: We exhaustively search all 24 hourly slots per platform using creator-specific historical engagement patterns to identify the highest-performing slot, amplified by platform peak-hour activity scores.
 
-**Optimal posting time:** We exhaustively search all 24 hourly slots per platform, leveraging creator-specific historical engagement patterns to find the slot where each creator's content type performs best, amplified by platform peak-hour activity scores.
+Platform selection: Platform and time slot are jointly optimized. This captures cross-effects where a suboptimal platform at peak time may outperform the natural platform at off-peak time. SHORT content favors Instagram; LONG content favors YouTube.
 
-**Platform selection:** Platform and time slot are jointly optimized rather than decided independently. This captures cross-effects where a suboptimal platform at peak time may outperform the "natural" platform at off-peak time. The data naturally reveals SHORT content favors Instagram and LONG content favors YouTube.
+Balancing activity and history: The multiplicative model naturally balances both signals. Platform activity scales creator-specific engagement, so strong off-peak historical performance competes directly with moderate peak-hour engagement.
 
-**Balancing activity and history:** The multiplicative scoring model naturally balances both signals. Platform activity acts as a scaling multiplier on creator-specific engagement, so high historical engagement at off-peak times competes with moderate engagement at peak times.
-
-**Schedule vs post_now:** If the optimal time slot matches the content's creation timestamp, we post immediately. Otherwise, we schedule for the predicted optimal window.
-
----
-
-*Keep your description concise and focused on your core decision-making logic.*
-
-**Note:** Please do not change the format or spelling of anything in this README. The fields are extracted using a script, so any changes to the structure or formatting may break the extraction process.
+Schedule vs post_now: If the optimal time slot matches the content's creation timestamp, we post immediately. Otherwise, we schedule for the predicted optimal window.
